@@ -1,13 +1,8 @@
-class CreateTournaments < ActiveRecord::Migration[6.0]
+class CreateCategories < ActiveRecord::Migration[6.0]
   def change
-    create table :tounaments do |t|
+    create table :categories do |t|
       t.string :name
-      t.datetime :start_date
-      t.datetime :registration_deadline
-      t.integer :participants
-      t.string :game_title
-      t.boolean :completed
-
+      
       t.timestamps
   end
 end
