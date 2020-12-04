@@ -1,0 +1,5 @@
+<ul>
+<% @categories.each do |cat| %>
+    <li><%= link_to cat.name, category_games_path(cat, @game) %></li><br>
+<% end %>
+</ul>
