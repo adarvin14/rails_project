@@ -1,0 +1,51 @@
+<h3>Add a Game To Your Library: </h3>
+<hr>
+<h4>Enter Your Game Information: </h4>
+
+
+<%= form_for(@game) do |g| %>
+    <div class="field_with_errors">
+        <% if @game.errors.any? %>
+            <h3>Errors:</h3>
+            <ul>
+                <% @game.errors.full_messages.each do |m| %>
+                <li><%= m %></li>
+                <% end %>
+            </ul>
+        <% end %>
+    </div>
+
+    <%= f.label "Game" %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.label :release_year %>
+    <%= f.text_field :release_year %>
+    <br>
+    <%= f.label :hours_played %>
+    <%= f.text_field :hours_played %>
+    <br>
+    <%= f.label :online_multiplayer %>
+    <%= f.text_field :online_multiplayer %>
+    <br>
+    <%= f.label :campaign %>
+    <%= f.text_field :campaign %>
+    <br>
+    <%= f.label :campaign_completed %>
+    <%= f.text_field :campaign_completed %>
+    <br>
+
+
+<h4>Category Info: </h4>
+    <% if @category %>
+        <%= f.hidden_field :category_id %>
+    <% else %>
+       <p> Select from an exisiting category
+        <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "Choose A Category"  %></p>
+        <p> or create a new category =>
+        <%= f.fields_for :category, @game.build_category do |game_category| %>
+            <%= game_category.label "Category" %>
+            <%= game_category.text_field :name %>
+        <% end %></p>
+    <% end %>
+    <%= f.submit  %>
+<% end %>
