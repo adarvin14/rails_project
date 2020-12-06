@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
 
     def new
         @category = Category.new(id)
+        @game = @category.games.build
     end
 
     def create
