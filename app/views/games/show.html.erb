@@ -19,7 +19,9 @@
 <li><%= @game.category.name %></li><br>
 
 <button><%= link_to 'Edit', edit_game_path %></button>
+
 <br>
+<button><%= link_to 'Delete Game', @game, method: :delete %></button>
 
 <br>
 <button><%= link_to 'Back', games_path %></button>

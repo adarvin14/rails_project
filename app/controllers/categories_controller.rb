@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
     end 
 
     def new
-        @category = Category.new(id)
+        @category = Category.new(id: params[:id])
         @game = @category.games.build
     end
 
@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
         @category = current_user.categories.build(category_params)
         
         if @category.save
-            redirect_to cateroy_path(@category)
+            redirect_to category_path(@category)
         else
             render :new 
         end 
