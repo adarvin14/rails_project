@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
     has_many :games
-    has_many :users, through: :movies
+    has_many :users, through: :games
     validates :name, presence: true
 end

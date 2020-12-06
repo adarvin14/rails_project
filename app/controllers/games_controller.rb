@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-    before_action :set_movie, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
 
     def index
@@ -11,15 +10,22 @@ class GamesController < ApplicationController
     end
 
     def show
-    
+        @game = current_user.games.find_by(id: params[:id])
+        if !@game
+            redirect_to category_path
+        end
+
     end
 
     def new
-        @game = Game.new(category_id: params[:category_id])
-    end
+        if params[:category_id] && @category = Category.find_by(id: params[:category_id])
+            @game = @category.games.build
+        else
+            @game = Game.new
+        end
 
     def edit
-
+        @game = Game.find_by(id: params[:id])
     end
 
     def create
