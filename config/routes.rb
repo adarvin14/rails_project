@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   root to: 'welcome#home'
 
   resources :categories do 
-    resources :games, only: [:new, :create, :index]
+    resources :games, only: [:new, :create, :update, :index]
   end
   resources :games
 

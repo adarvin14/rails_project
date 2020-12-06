@@ -1,19 +1,27 @@
 <h1><%= @game.title %></h1>
 
 <p>Release Year:</p>
-<li><%= @game.category.release_year %></li><br>
+<li><%= @game.release_year %></li><br>
 
 <p>Hours Played:</p>
-<li><%= @game.category.hours_played %></li><br>
+<li><%= @game.hours_played %></li><br>
+
+<p>Online Multiplayer:</p>
+<li><%= @game.online_multiplayer %></li><br>
+
+<p>Campaign:</p>
+<li><%= @game.campaign %></li><br>
+
+<p>Campaign Completed?:</p>
+<li><%= @game.campaign_completed %></li><br>
 
 <p>Category:</p>
 <li><%= @game.category.name %></li><br>
 
-<p>Category:</p>
-<li><%= @game.category.name %></li><br>
-
-<%= link_to 'Edit', edit_game_path %>
-<br>
+<button><%= link_to 'Edit', edit_game_path %></button>
 <br>
 
-<button><%= link_to 'Back', root_path %></button>
+<button><%= link_to 'Delete', delete_game_path %>
+<br>
+
+<button><%= link_to 'Back', games_path %></button>

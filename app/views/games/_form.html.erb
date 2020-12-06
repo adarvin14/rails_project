@@ -41,9 +41,8 @@
     <% else %>
        <p> Select from an exisiting category
         <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "Choose A Category"  %></p>
-        <p> or create a new category =>
+        <p> or create a New Category Here
         <%= f.fields_for :category, @game.build_category do |game_category| %>
-            <%= game_category.label "Category" %>
             <%= game_category.text_field :name %>
         <% end %></p>
     <% end %>

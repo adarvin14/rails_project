@@ -21,7 +21,6 @@ class GamesController < ApplicationController
             @game = @category.games.build
         else
             @game = Game.new
-            render :new
         end
     end
 
@@ -39,6 +38,7 @@ class GamesController < ApplicationController
     end
 
     def update
+        @game = Game.find_by(id: params[:id])
         if @game.update(game_params)
             redirect_to @game
         else
