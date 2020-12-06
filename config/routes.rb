@@ -9,4 +9,9 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
 
+  resources :categories do 
+    resources :games, only: [:new, :create, :index]
+  end
+  resources :games
+
 end

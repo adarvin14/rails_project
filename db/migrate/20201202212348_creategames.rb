@@ -9,5 +9,6 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.boolean :campaign_completed
 
       t.timestamps
+    end
   end
 end
