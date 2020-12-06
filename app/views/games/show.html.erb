@@ -1,0 +1,19 @@
+<h1><%= @game.title %></h1>
+
+<p>Release Year:</p>
+<li><%= @game.category.release_year %></li><br>
+
+<p>Hours Played:</p>
+<li><%= @game.category.hours_played %></li><br>
+
+<p>Category:</p>
+<li><%= @game.category.name %></li><br>
+
+<p>Category:</p>
+<li><%= @game.category.name %></li><br>
+
+<%= link_to 'Edit', edit_game_path %>
+<br>
+<br>
+
+<button><%= link_to 'Back', root_path %></button>
