@@ -5,7 +5,7 @@ class GamesController < ApplicationController
        if params[:category_id]
         @games = Category.find(params[:category_id]).games 
        else
-        @games = current_user.games
+        @games = current_user.games.order(:title)
        end
     end
 

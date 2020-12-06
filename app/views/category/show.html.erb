@@ -1,0 +1,9 @@
+<h1><%= @category.name %></h1>
+
+    <h3>Games:</h3>
+    <button><%= link_to 'See Games', category_games_path(@category) %></button>
+
+<br>
+<br>
+<button><%= link_to 'Back', root_path %></button>
+<button><%= link_to 'Delete Category', @category, method: :delete %></button>
