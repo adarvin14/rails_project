@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_12_06_195933) do
     t.boolean "online_multiplayer"
     t.boolean "campaign"
     t.boolean "campaign_completed"
+    t.integer "category_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

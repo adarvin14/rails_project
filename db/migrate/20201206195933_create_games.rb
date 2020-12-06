@@ -7,6 +7,8 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.boolean :online_multiplayer
       t.boolean :campaign
       t.boolean :campaign_completed
+      t.integer :category_id
+      t.integer :user_id
     
       t.timestamps
     end

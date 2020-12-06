@@ -14,7 +14,6 @@ class GamesController < ApplicationController
         if !@game
             redirect_to category_path
         end
-
     end
 
     def new
@@ -22,7 +21,9 @@ class GamesController < ApplicationController
             @game = @category.games.build
         else
             @game = Game.new
+            render :new
         end
+    end
 
     def edit
         @game = Game.find_by(id: params[:id])

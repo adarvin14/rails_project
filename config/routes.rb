@@ -2,10 +2,18 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations', omniauth_callbacks: 'callbacks' }
   
-  devise_scope :user do 
-    get 'login', to: 'devise/sessions#new', as: 'login'
-    get 'signup', to: 'devise/registrations#new', as: 'signup'
+  devise_scope :user do
+    get '/users/sign_in', to: 'devise/sessions#new'
+    post '/users/sign_in', to: 'devise/sessions#create'
+    get '/users/sign_up', to: 'devise/sessions#new'
+    post '/users/sign_up', to: 'devise/sessions#create'
+    get '/users/sign_out', to: 'devise/sessions#destroy'
   end
+
+  get '/users/:id', to: 'users#show'
+
+  
+  get '/games/new', to: 'games#new'
 
   root to: 'welcome#home'
 
