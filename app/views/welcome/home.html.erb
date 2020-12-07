@@ -7,3 +7,16 @@
 <% if user_signed_in? %>
     <h3><%= link_to "Add Game", new_game_path %></h3>
 <% end %>
+
+<nav>
+    <ul>
+        <% if !user_signed_in? %>
+            <li><button><%= link_to 'Sign Up', new_user_registration_path %></button></li>
+            <li><button><%= link_to 'Log In', new_user_session_path %></button></li>
+        <% else %>
+            <li><button><%= link_to 'View Current Games', games_path %><li></button>
+            <li><button><%= link_to 'Edit Account', edit_user_registration_path %></button></li>
+            <li><button><%= link_to 'Log Out', destroy_user_session_path, method: 'delete' %></button></li>
+        <% end %>
+    </ul>
+</nav>   
