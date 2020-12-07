@@ -1,0 +1,9 @@
+<nav>
+    <ul>
+        <% if user_signed_in? %>
+            <li><button><%= link_to 'Home', root_path %></button></li>
+            <li><button><%= link_to 'Edit Account', edit_user_registration_path %></button></li>
+            <li><button><%= link_to 'Log Out', destroy_user_session_path, method: 'delete' %></button></li>
+        <% end %>
+    </ul>
+</nav> 
