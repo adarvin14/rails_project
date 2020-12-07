@@ -1,24 +1,10 @@
-# README
+Welcome to the Video Game Catalog!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To use this application: clone this repository and run bundle install
 
-Things you may want to cover:
+This app allows the user to keep track of their favorite games, as well as being able to sort them by the category/genre of games!
 
-* Ruby version
 
-* System dependencies
+License
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project is licensed under the MIT License - see the LICENSE file for details
