@@ -25,18 +25,31 @@
     <%= f.text_field :hours_played %>
     <br>
     <%= f.label :online_multiplayer %>
-    <%= f.text_field :online_multiplayer %>
+        <%= f.label 'online_multiplayer_true', 'Yes' %>
+        <%= f.radio_button :online_multiplayer, true %>
+    
+        <%= f.label 'online_multiplayer_false', 'No' %>
+        <%= f.radio_button :online_multiplayer, false %>
     <br>
     <%= f.label :campaign %>
-    <%= f.text_field :campaign %>
+        <%= f.label 'campaign_true', 'Yes' %>
+        <%= f.radio_button :campaign, true %>
+    
+        <%= f.label 'campaign_false', 'No' %>
+        <%= f.radio_button :campaign, false %>
     <br>
     <%= f.label :campaign_completed %>
-    <%= f.text_field :campaign_completed %>
+        <%= f.label 'campaign_completed_true', 'Yes' %>
+        <%= f.radio_button :campaign_completed, true %>
+    
+        <%= f.label 'campaign_completed_false', 'No' %>
+        <%= f.radio_button :campaign_completed, false %>
     <br>
 
 
 <h4>Category Info: </h4>
     <% if @category %>
+    <h5> <%= @category.name %> Category </h5>
         <%= f.hidden_field :category_id %>
     <% else %>
        <p> Select from an exisiting category

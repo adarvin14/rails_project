@@ -2,17 +2,18 @@ class GamesController < ApplicationController
     before_action :authenticate_user!
 
     def index
-       if params[:category_id]
-        @games = Category.find(params[:category_id]).games 
-       else
-        @games = current_user.games.order(:title)
-       end
+        if params[:category_id]
+            @category = current_user.categories.find_by(id: params[:category_id])
+            @games = @category.games
+        else
+            @games = current_user.games.order(:title)
+        end
     end
 
     def show
         @game = current_user.games.find_by(id: params[:id])
         if !@game
-            redirect_to category_path
+            redirect_to games_path
         end
     end
 
@@ -47,7 +48,10 @@ class GamesController < ApplicationController
     end
 
     def destroy
-        @game.destroy 
+        @game = current_user.games.find_by(id: params[:id])
+        if @game
+            @game.destroy 
+        end
         redirect_to games_path
     end
 

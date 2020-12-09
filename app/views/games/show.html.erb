@@ -22,11 +22,8 @@
 <br>
 <br>
 <br>
-<button><%= link_to 'Delete Game', @game, method: :delete %></button>
+<%= button_to 'Delete Game', game_path(@game), method: :delete %>
 <br>
 <br>
 <br>
 <button><%= link_to 'Back', games_path %></button>
-<br>
-<br>
-<%= render 'layouts/nav' %>
