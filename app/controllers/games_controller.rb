@@ -18,15 +18,15 @@ class GamesController < ApplicationController
     end
 
     def new
-        if params[:category_id] && @category = Category.find_by(id: params[:category_id])
+        if params[:category_id] && @category = current_user.categories.find_by(id: params[:category_id])
             @game = @category.games.build
         else
-            @game = Game.new
+            @game = current_user.games.build
         end
     end
 
     def edit
-        @game = Game.find_by(id: params[:id])
+        @game = current_user.games.find_by(id: params[:id])
     end
 
     def create
@@ -39,7 +39,7 @@ class GamesController < ApplicationController
     end
 
     def update
-        @game = Game.find_by(id: params[:id])
+        @game = current_user.games.find_by(id: params[:id])
         if @game.update(game_params)
             redirect_to @game
         else

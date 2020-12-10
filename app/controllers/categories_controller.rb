@@ -6,12 +6,12 @@ class CategoriesController < ApplicationController
     end
 
     def show
-        @categories = Category.find_by(id: params[:id])
+        @categories = current_user.categories.find_by(id: params[:id])
         render :show
     end 
 
     def new
-        @category = Category.new(id: params[:id])
+        @category = current_user.categories.new(id: params[:id])
         @game = @category.games.build
     end
 
@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
     end
 
     def edit 
-        @category = Category.find_by(id: params[:id])
+        @category = current_user.categories.find_by(id: params[:id])
     end 
 
     def update
