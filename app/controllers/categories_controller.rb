@@ -2,7 +2,11 @@ class CategoriesController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @categories = current_user.categories.uniq
+        @categories = current_user.categories.sort_by do |category| 
+            #binding.pry
+            category.games.count
+        end
+        @categories = @categories.reverse.uniq
     end
 
     def show

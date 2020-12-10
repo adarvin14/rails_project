@@ -5,6 +5,12 @@ class GamesController < ApplicationController
         if params[:category_id]
             @category = current_user.categories.find_by(id: params[:category_id])
             @games = @category.games
+        elsif params[:search_term]
+            if params[:search_term] = "multiplayergames"
+                @games = current_user.games.multiplayergames
+            # else params[:search_term] = "awesomegames"
+            #     @games = current_user.games.awesomegames
+            end
         else
             @games = current_user.games.order(:title)
         end

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
+  get 'games/search_term/:search_term', to: 'games#index'
+
   get '/users/:id', to: 'users#show'
 
   

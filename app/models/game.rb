@@ -2,7 +2,10 @@ class Game < ApplicationRecord
     belongs_to :category
     belongs_to :user
 
-    scope :online_multiplayer, -> { where("online_multiplayer" > true) }
+    scope :multiplayergames, -> { where("online_multiplayer = true") }
+
+    #scope :awesomegames, -> { where("hours_played > 100") }
+    #<%= link_to 'Awesome Games', '/games/search_term/hours_played', class: "btn btn-secondary btn-sm text-white" %>
 
     validates :title, presence: true
 
